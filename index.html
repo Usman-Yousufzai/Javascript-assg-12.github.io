@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Array Manipulation</title>
+  <style>
+    .container {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      margin-top: 50px;
+    }
+    .btn {
+      padding: 10px 20px;
+      margin-bottom: 10px;
+    }
+    .output {
+      font-weight: bold;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <button id="addBtn" class="btn">Add</button>
+    <button id="deleteBtn" class="btn">Delete</button>
+    <div id="output" class="output"></div>
+  </div>
+
+  <script>
+    var names = ["John", "Jane", "Alex", "Emily", "Michael"];
+
+    
+    function displayNames() {
+      var outputDiv = document.getElementById("output");
+      outputDiv.innerText = names.join(", ");
+    }
+
+   
+    function addName() {
+      var name = prompt("Enter a name:");
+      var index = prompt("Enter the index where you want to add the name:");
+
+      
+      index = parseInt(index);
+
+      
+      names.splice(index, 0, name);
+
+      
+      displayNames();
+    }
+
+   
+    function deleteName() {
+      var index = prompt("Enter the index of the name you want to delete:");
+
+      index = parseInt(index);
+
+      names.splice(index, 1);
+
+      
+      displayNames();
+    }
+
+    document.getElementById("addBtn").addEventListener("click", addName);
+    document.getElementById("deleteBtn").addEventListener("click", deleteName);
+
+    
+    displayNames();
+  </script>
+</body>
+</html>
